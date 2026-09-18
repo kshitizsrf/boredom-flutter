@@ -1,0 +1,23 @@
+1. Categorize different activities 
+
+2. Make a uniform layout screen for showing an activity 
+
+3. Implement in code - search the activity on web and 
+	extract any image and show it on screen 
+
+4. Only show web image when clicked on sample image 
+
+5. Save some sample images in codebase(offline) according 
+	to basic activities/categories 
+
+6. Give option search activity based on different inputs, also search random by text 
+	Implement different user inputs based on api query params 
+
+7. Give option to save an activity (save its details against its key) 
+
+
+Animations and styling 
+
+
+
+On holding text "Boredom" tooptip - "The state of feeling bored"

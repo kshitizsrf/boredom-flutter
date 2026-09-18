@@ -2,6 +2,7 @@ import 'package:boredom/resources/colors.dart';
 import 'package:boredom/resources/styles.dart';
 import 'package:boredom/widgets/clickables.dart';
 import 'package:flutter/material.dart';
+import 'package:share_plus/share_plus.dart';
 import '../models/activity.dart';
 import '../services/api_service.dart';
 import 'package:shimmer/shimmer.dart';
@@ -148,21 +149,33 @@ class _ActivityScreenState extends State<ActivityScreen> {
                             horizontal: 2,
                             vertical: 24,
                           ),
-                          child: Container(
+                          child: Ink(
                             decoration: BoxDecoration(
-                              shape: BoxShape.rectangle,
-                              color: Colors.white,
                               borderRadius: BorderRadius.circular(18),
                               border: Border.all(
                                 color: AppColors.tertiary!,
                                 width: 2,
                               ),
                             ),
-                            padding: EdgeInsets.all(14),
-                            child: Icon(
-                              Icons.share_outlined,
-                              size: 28,
-                              color: AppColors.tertiary,
+                            child: IconButton(
+                              icon: Icon(
+                                Icons.share_outlined,
+                                size: 28,
+                                color: AppColors.tertiary,
+                              ),
+                              onPressed: activity == null
+                                  ? null
+                                  : () {
+                                      final a = activity!;
+                                      Share.share(
+                                        "🎯 Boredom Ideas !!\n\n"
+                                        "${a.activity}\n\n"
+                                        "Type: ${a.type[0].toUpperCase()}${a.type.substring(1)}\n"
+                                        "Participants: ${a.participants}\n\n"
+                                        "Try this now!",
+                                        subject: "Activity Idea",
+                                      );
+                                    },
                             ),
                           ),
                         ),
